@@ -3,31 +3,23 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  overscroll-behavior: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+html {
+  background: #000;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
+  h1 {
+    @apply text-xl font-bold;
+  }
+
+  button {
+    @apply transition focus:outline-none bg-[#111] hover:bg-[#333] focus:bg-[#333] border-[0.0625rem] border-[#222] hover:border-[#444] focus:border-[#444] rounded-md px-4 py-2;
   }
 }
