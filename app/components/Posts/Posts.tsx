@@ -8,7 +8,7 @@ export default function Posts({ posts, users }: { posts: Post[]; users: User[] }
   const searchParams = useSearchParams()
 
   return (
-    <ul className="overflow-auto scrollbar-hidden space-y-2">
+    <ul className="overflow-auto scrollbar-hidden space-y-2 pb-4 -mb-4">
       {posts.map(
         (post) =>
           post.title.toLowerCase().includes(searchParams.get("q")?.toLocaleLowerCase() ?? "") && (

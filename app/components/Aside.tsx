@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { LuHome, LuStickyNote } from "react-icons/lu"
+import { LuHome, LuShoppingCart, LuStickyNote } from "react-icons/lu"
 
 export default function Aside() {
   const pathname = usePathname()
@@ -10,6 +10,7 @@ export default function Aside() {
   const routes = [
     { name: "Home", href: "/", icon: <LuHome /> },
     { name: "Posts", href: "/posts", icon: <LuStickyNote /> },
+    { name: "Shop", href: "/shop", icon: <LuShoppingCart /> },
   ]
 
   return (

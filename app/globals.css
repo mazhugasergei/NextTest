@@ -18,8 +18,4 @@ html {
   h1 {
     @apply text-xl font-bold;
   }
-
-  button {
-    @apply transition focus:outline-none bg-[#111] hover:bg-[#333] focus:bg-[#333] border-[0.0625rem] border-[#222] hover:border-[#444] focus:border-[#444] rounded-md px-4 py-2;
-  }
 }

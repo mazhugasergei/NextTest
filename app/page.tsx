@@ -1,4 +1,4 @@
-export default function Page() {
+export default async function Page() {
   return (
     <div className="h-full grid grid-rows-[auto_1fr]">
       <h1 className="mb-4">Home</h1>
