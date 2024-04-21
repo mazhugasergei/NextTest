@@ -117,7 +117,7 @@ const db = [
 
 export default async function Page({ params }: { params: { slug?: string[] } }) {
   const filtered = params.slug
-    ? db.filter((product) => params.slug.every((category) => product.categories.includes(category)))
+    ? db.filter((product) => params.slug?.every((category) => product.categories.includes(category)))
     : db
 
   const restCategories = (() => {
