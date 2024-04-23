@@ -21,8 +21,8 @@ export default function Aside() {
             <Link
               href={route.href}
               className={`${
-                pathname === route.href ? "bg-[#222]" : ""
-              } hover:bg-[#222] focus:outline-none focus:bg-[#333] transition min-w-[8rem] flex items-center gap-2 rounded-md py-2 px-4`}
+                `/${pathname.substring(1).split("/")[0]}` === route.href ? "bg-[#222]" : ""
+              } hover:bg-[#222] focus:outline-none focus-visible:bg-[#333] transition min-w-[8rem] flex items-center gap-2 rounded-md py-2 px-4`}
             >
               <span>{route.icon}</span>
               <span>{route.name}</span>

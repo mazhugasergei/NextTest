@@ -1,6 +1,9 @@
-import Link from "next/link"
+import Search from "@/app/components/Search"
+import Items from "@/app/components/Shop/Items"
+import Nav from "@/app/components/Shop/Nav"
+import ShopHeading from "@/app/components/Shop/ShopHeading"
 
-const db = [
+const items = [
   {
     title: "T-Shirt",
     categories: ["top", "men"],
@@ -115,56 +118,16 @@ const db = [
   },
 ]
 
-export default async function Page({ params }: { params: { slug?: string[] } }) {
-  const filtered = params.slug
-    ? db.filter((product) => params.slug?.every((category) => product.categories.includes(category)))
-    : db
-
-  const restCategories = (() => {
-    const items = filtered.map(({ categories }) => categories).flat()
-    const set = new Set(items)
-    return Array.from(set).filter((category) => !params.slug?.includes(category))
-  })()
-
+export default async function Page() {
   return (
-    <>
-      <ul className="flex gap-1 mb-4">
-        {/* chosen categories */}
-        {params.slug &&
-          params.slug.map((slug) => (
-            <li>
-              <Link
-                href={`/shop/${params.slug?.filter((category) => category !== slug).join("/")}`}
-                key={slug}
-                className="text-sm bg-[#444] rounded-full px-3 py-1"
-              >
-                {slug}
-              </Link>
-            </li>
-          ))}
-        {/* rest categories */}
-        {restCategories.map((category) => (
-          <li>
-            <Link
-              href={`/shop/${params.slug ? params.slug.join("/") + "/" : ""}${category}`}
-              key={category}
-              className="text-sm bg-[#333] hover:bg-[#444] focus:bg-[#444] rounded-full px-3 py-1"
-            >
-              {category}
-            </Link>
-          </li>
-        ))}
-      </ul>
-
-      {filtered.length ? (
-        <ul>
-          {filtered.map((product) => (
-            <li key={product.title}>{product.title}</li>
-          ))}
-        </ul>
-      ) : (
-        <div className="h-full grid place-content-center">Nothing found</div>
-      )}
-    </>
+    <div className="h-full grid grid-rows-[auto_auto_1fr]">
+      {/* heading */}
+      <div className="flex items-center justify-between gap-2 mb-2">
+        <ShopHeading {...{ items }} />
+        <Search />
+      </div>
+      <Nav {...{ items }} />
+      <Items {...{ items }} />
+    </div>
   )
 }

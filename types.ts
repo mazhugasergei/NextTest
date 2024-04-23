@@ -28,3 +28,11 @@ type User = {
     bs: string
   }
 }
+
+type ShopItem = {
+  title: string
+  categories: string[]
+  color: string[]
+  size: string[]
+  price: number[]
+}
