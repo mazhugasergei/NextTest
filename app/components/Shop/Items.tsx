@@ -1,6 +1,7 @@
 "use client"
 
 import { useParams, useSearchParams } from "next/navigation"
+import { PiPants, PiTShirt } from "react-icons/pi"
 
 export default function Items({ items }: { items: ShopItem[] }) {
   const params = useParams<{ slug?: string[] }>()
@@ -18,9 +19,12 @@ export default function Items({ items }: { items: ShopItem[] }) {
             product.title.toLowerCase().includes(searchParams.get("q")?.toLocaleLowerCase() ?? "") && (
               <li
                 key={product.title}
-                className="aspect-square grid place-content-center border-[0.0625rem] border-[#333] rounded-lg"
+                className="aspect-square flex flex-col items-center justify-center border-[0.0625rem] border-[#333] rounded-lg"
               >
-                {product.title}
+                <div className="text-[2.5rem] mb-2">
+                  {product.categories.includes("top") ? <PiTShirt /> : <PiPants />}
+                </div>
+                <span className="text-[.875rem] font-medium">{product.title}</span>
               </li>
             )
         )}
