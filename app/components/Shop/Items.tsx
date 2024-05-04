@@ -20,7 +20,7 @@ export default function Items({ items }: { items: ShopItem[] }) {
   if (filtered.length)
     return (
       <div className="overflow-auto pb-4">
-        <ul className="grid grid-cols-[repeat(auto-fit,minmax(min(10rem,100%),1fr))] gap-4">
+        <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {filtered.map((product) => (
             <li
               key={product.title}
