@@ -1,30 +1,38 @@
 import Image from "next/image"
 import Link from "next/link"
 
+const photos = [
+  "1714572877777-59bf4765f462",
+  "1713813091339-6f0581cc0db6",
+  "1714399727269-7883d5d66da2",
+  "1590039357712-fc03d4d4f2b5",
+  "1711656166230-8e8ecfab7732",
+  "1714756034183-42581eacfb05",
+  "1714122252720-127dd9825098",
+]
+
 export default () => {
   return (
-    <div className="overflow-auto h-full space-y-2 pb-4">
-      <Photo src="https://images.unsplash.com/photo-1714572877777-59bf4765f462" />
-      <Photo src="https://images.unsplash.com/photo-1713813091339-6f0581cc0db6" />
-      <Photo src="https://images.unsplash.com/photo-1714399727269-7883d5d66da2" />
+    <div className="overflow-auto pb-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+        {photos.map((id) => (
+          <Photo key={id} id={id} />
+        ))}
+      </div>
     </div>
   )
 }
 
-const Photo = ({ src }: { src: string }) => {
+const Photo = ({ id }: { id: string }) => {
   return (
-    <Link href="" className="block overflow-hidden sm:flex bg-[#333] border-[0.0625rem] border-[#444] rounded-lg">
+    <Link href={`/photos/${id}`} className="block overflow-hidden aspect-[4/3] rounded-lg">
       <Image
-        src={src}
+        src={`https://images.unsplash.com/photo-${id}`}
         alt="Photo"
         width={200}
-        height={200}
-        className="object-cover aspect-[4/3] sm:aspect-square w-full sm:w-[12.5rem]"
+        height={150}
+        className="object-cover w-full h-full"
       />
-      <div className="w-full space-y-2 p-4">
-        <div className="w-full h-[2rem] bg-[#444] rounded-lg" />
-        <div className="w-[80%] h-[2rem] bg-[#444] rounded-lg" />
-      </div>
     </Link>
   )
 }
