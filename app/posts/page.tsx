@@ -9,10 +9,10 @@ export default async function Page() {
 
   return (
     <div className="h-full grid grid-rows-[auto_1fr]">
-      <div className="flex items-center justify-between gap-2 mb-2">
+      <nav className="flex items-center justify-between gap-2 mb-2">
         <PostsHeading {...{ posts }} />
         <Search />
-      </div>
+      </nav>
       <Posts {...{ posts, users }} />
     </div>
   )
