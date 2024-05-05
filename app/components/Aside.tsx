@@ -17,7 +17,7 @@ export default function Aside() {
   ]
 
   return (
-    <aside className="bg-[#111] p-4">
+    <aside className="lg:w-[12rem] bg-[#111] p-4">
       <ul className="grid gap-1">
         {routes.map((route) => (
           <li key={route.name}>
