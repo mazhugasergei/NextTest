@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { LuHome, LuShoppingCart, LuStickyNote, LuUser2 } from "react-icons/lu"
-import { TbPhoto } from "react-icons/tb"
+import { TbApi, TbPhoto } from "react-icons/tb"
 
 export default function Aside() {
   const pathname = usePathname()
@@ -13,6 +13,7 @@ export default function Aside() {
     { name: "Posts", href: "/posts", icon: <LuStickyNote /> },
     { name: "Shop", href: "/shop", icon: <LuShoppingCart /> },
     { name: "Photos", href: "/photos", icon: <TbPhoto /> },
+    { name: "Handlers", href: "/handlers", icon: <TbApi /> },
     { name: "Profile", href: "/profile", icon: <LuUser2 /> },
   ]
 
